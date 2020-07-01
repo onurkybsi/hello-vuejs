@@ -5,80 +5,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Vue.js</title>
-  </head>
-  <body>
     <div id="app">
-      {{message}}
-    </div>
-    <div id="app-2">
-      <span v-bind:title="message">
-        Hover your mouse over me for a few seconds to see my dynamically bound
-        title!
-      </span>
-    </div>
-    <div id="app-3">
-      <span v-if="seen">Now you see me</span>
-    </div>
-    <div id="app-4">
       <ol>
-        <li v-for="todo in todos">
-          {{todo.text}}
-        </li>
+        <todo-item
+          v-for="item in dataList"
+          v-bind:todo="item"
+          v-bing:key="item.id"
+        >
+        </todo-item>
       </ol>
     </div>
-    <div id="app-5">
-      <p>{{message}}</p>
-      <button v-on:click="reverseMessage">Reverse Message</button>
-    </div>
-    <div id="app-6">
-      <p>{{message}}</p>
-      <input v-model="message" />
-    </div>
-  </body>
+  </head>
+  <body></body>
   <script>
+    Vue.component("todo-item", {
+      props: ["todo"],
+      template: "<li>{{todo.text}}</li>",
+    });
+
     var app = new Vue({
       el: "#app",
       data: {
-        message: "Hello Vue.js!",
-      },
-    });
-    var app2 = new Vue({
-      el: "#app-2",
-      data: {
-        message: "You loaded this page on " + new Date().toLocaleDateString(),
-      },
-    });
-    var app3 = new Vue({
-      el: "#app-3",
-      data: {
-        seen: false,
-      },
-    });
-    var app4 = new Vue({
-      el: "#app-4",
-      data: {
-        todos: [
-          { text: "Learn JS" },
-          { text: "Learn Vue" },
-          { text: "Build something awesome" },
+        dataList: [
+          { id: 0, text: "Data1" },
+          { id: 1, text: "Data2" },
+          { id: 2, text: "Data3" },
         ],
-      },
-    });
-    var app5 = new Vue({
-      el: "#app-5",
-      data: {
-        message: "Hello Vue.js again!",
-      },
-      methods: {
-        reverseMessage: function () {
-          this.message = this.message.split("").reverse().join("");
-        },
-      },
-    });
-    var app6 = new Vue({
-      el: "#app-6",
-      data: {
-        message: "Hello Vue.js again and again!",
       },
     });
   </script>
