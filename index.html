@@ -1,37 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Vue.js</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Vuejs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
     <div id="app">
-      <ol>
-        <todo-item
-          v-for="item in dataList"
-          v-bind:todo="item"
-          v-bing:key="item.id"
-        >
-        </todo-item>
-      </ol>
+        <div v-bind:style="{color: background}">
+            <span>
+                {{num}}
+            </span>
+        </div>
+        </br>
+        <button v-on:click="increase">
+            Increase
+        </button>
     </div>
-  </head>
-  <body></body>
-  <script>
-    Vue.component("todo-item", {
-      props: ["todo"],
-      template: "<li>{{todo.text}}</li>",
-    });
-
-    var app = new Vue({
-      el: "#app",
-      data: {
-        dataList: [
-          { id: 0, text: "Data1" },
-          { id: 1, text: "Data2" },
-          { id: 2, text: "Data3" },
-        ],
-      },
-    });
-  </script>
+</body>
 </html>
