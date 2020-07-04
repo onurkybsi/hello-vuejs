@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Vuejs</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="app">
-        <div v-bind:style="{color: background}">
-            <span>
-                {{num}}
-            </span>
-        </div>
-        </br>
-        <button v-on:click="increase">
-            Increase
-        </button>
+      <span v-once>This will never change: {{data1}}</span>
+      <br />
+      <span>Raw HTML message syntax: </span>
+      <span v-html="data2"></span>
+      <br />
+      <button v-bind:disabled="isButtonDisabled">Disabled button</button>
+      <br />
+      <span>JavaScript Expressions in Vue: </span>
+      <span>{{num%2 === 0 ? 'divisible' : 'indivisible'}}</span>
+      <br />
+      <span v-if="seen">Now you see me</span>
+      <br />
+      <a v-bind:href="url">To my Github page</a>
+      <br />
+      <button v-on:click="doSomething">Handled click event</button>
+      <br />
+      <button v-on:[event]="doSomething">v-on with dynamic argument</button>
+      <br />
+      <!-- shorthand -->
+      <a :href="url"> Shorthand of v-bind </a>
+      <br />
+      <!-- shorthand -->
+      <button @click="doSomething"> Shorthand of v-on </button>
     </div>
-</body>
+  </body>
 </html>
