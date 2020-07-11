@@ -2,11 +2,21 @@ window.addEventListener("load", () => {
   var app = new Vue({
     el: "#app",
     data: {
-      message: "Hello",
+      firstname: "Onur",
+      lastname: "Kayabasi",
     },
+    // computed properties are by default read-only
+    // but they have setter func
     computed: {
-      reversedMessage: function () {
-        return this.message.split("").reverse().join("");
+      fullname: {
+        get: function () {
+          return `${this.firstname} ${this.lastname}`;
+        },
+        set: function (newValue) {
+          let names = newValue.split("");
+          this.firstname = names[0];
+          this.lastname = names[names.length - 1];
+        },
       },
     },
   });
