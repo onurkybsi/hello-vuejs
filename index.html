@@ -9,29 +9,8 @@
   </head>
   <body>
     <div id="app">
-      <span v-once>This will never change: {{data1}}</span>
-      <br />
-      <span>Raw HTML message syntax: </span>
-      <span v-html="data2"></span>
-      <br />
-      <button v-bind:disabled="isButtonDisabled">Disabled button</button>
-      <br />
-      <span>JavaScript Expressions in Vue: </span>
-      <span>{{num%2 === 0 ? 'divisible' : 'indivisible'}}</span>
-      <br />
-      <span v-if="seen">Now you see me</span>
-      <br />
-      <a v-bind:href="url">To my Github page</a>
-      <br />
-      <button v-on:click="doSomething">Handled click event</button>
-      <br />
-      <button v-on:[event]="doSomething">v-on with dynamic argument</button>
-      <br />
-      <!-- shorthand -->
-      <a :href="url"> Shorthand of v-bind </a>
-      <br />
-      <!-- shorthand -->
-      <button @click="doSomething"> Shorthand of v-on </button>
+      <p>Original message: {{message}}</p>
+      <p>Computed reversed message: {{reversedMessage}}</p>
     </div>
   </body>
 </html>
