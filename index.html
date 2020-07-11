@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Vuejs</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
     <div id="app">
-      <p>Full name: {{fullname}}</p>
+      <p>Euro:</p>
+      <input v-model="euro" />
+      <br />
+      <p>{{dollar}}</p>
     </div>
   </body>
 </html>
