@@ -15,14 +15,18 @@
   </head>
   <body>
     <div id="app" style="margin: 20px;">
-      <div class="alert" v-bind:class="{'alert-success': success}" role="alert">
-        This is a success alert—check it out!
+      <div v-bind:style="{color: activeColor, fontSize: 30}">
+        Style from Vuejs
       </div>
-      <div v-bind:class="[alertClass, failureClass]" role="alert">
-        This is a danger alert—check it out!
+      <div v-bind:style="styleData">
+        Another style from Vuejs
       </div>
-      <div class="alert" v-bind:class="[success ? 'alert-success' : failureClass]" role="alert">
-        This is a danger alert—check it out!
+      <div v-bind:style="[borderStyle, backgroundColor]">
+        Thirth style from Vuejs
+      </div>
+      <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
+        This will only render the last value in the array which the browser
+        supports.In this example : flex
       </div>
     </div>
   </body>

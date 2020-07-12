@@ -2,9 +2,14 @@ window.addEventListener("load", () => {
   var app = new Vue({
     el: "#app",
     data: {
-      success: true,
-      alertClass: "alert",
-      failureClass: "alert-danger",
+      activeColor: "red",
+      fontSize: 30,
+      styleData: {
+        backgroundColor: "green",
+        fontSize: 50,
+      },
+      borderStyle: "solid",
+      backgroundColor: "yellow",
     },
   });
 });
