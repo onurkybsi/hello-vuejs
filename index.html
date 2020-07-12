@@ -5,16 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Vuejs</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
     <script src="app.js"></script>
   </head>
   <body>
-    <div id="app">
-      <p>Euro:</p>
-      <input v-model="euro" />
-      <br />
-      <p>{{dollar}}</p>
+    <div id="app" style="margin: 20px;">
+      <div class="alert" v-bind:class="{'alert-success': success}" role="alert">
+        This is a success alert—check it out!
+      </div>
+      <div v-bind:class="[alertClass, failureClass]" role="alert">
+        This is a danger alert—check it out!
+      </div>
+      <div class="alert" v-bind:class="[success ? 'alert-success' : failureClass]" role="alert">
+        This is a danger alert—check it out!
+      </div>
     </div>
   </body>
 </html>
