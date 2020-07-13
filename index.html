@@ -15,18 +15,29 @@
   </head>
   <body>
     <div id="app" style="margin: 20px;">
-      <div v-bind:style="{color: activeColor, fontSize: 30}">
-        Style from Vuejs
+      <div v-if="Math.random() > 0.5">
+        Now you see me
       </div>
-      <div v-bind:style="styleData">
-        Another style from Vuejs
+      <div v-else>
+        Now you don't
       </div>
-      <div v-bind:style="[borderStyle, backgroundColor]">
-        Thirth style from Vuejs
+      <template v-if="ok">
+        <h1>Title</h1>
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+      </template>
+      <div v-if="num % 6 === 0">
+        Can be divided into 6
       </div>
-      <div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
-        This will only render the last value in the array which the browser
-        supports.In this example : flex
+      <div v-else-if="num % 3 === 0">
+        Can be divided into 3
+      </div>
+      <div v-else-if="num % 2 === 0">
+        Can be divided into 2
+      </div>
+
+      <div v-show="false">
+        Is it in DOM ? Yes. v-show="false" => display: none
       </div>
     </div>
   </body>
