@@ -15,30 +15,40 @@
   </head>
   <body>
     <div id="app" style="margin: 20px;">
-      <div v-if="Math.random() > 0.5">
-        Now you see me
+      <ul>
+        <li v-for="item in array" :key="item.message">
+          {{item.message}}
+        </li>
+      </ul>
+      <ul>
+        <li v-for="(item, index) in array">
+          {{item.message}} - {{index}}
+        </li>
+      </ul>
+      <ul>
+        <!-- in or of, doesnt matter -->
+        <li v-for="prop of iterableObject">
+          {{prop}}
+        </li>
+      </ul>
+      <ul>
+        <li v-for="(value, key) of iterableObject">
+          {{key}} - {{value}}
+        </li>
+      </ul>
+      <ul>
+        <li v-for="evenNumber in evenNumbers">
+          {{evenNumber}}
+        </li>
+      </ul>
+      <div>
+        <span v-for="n in 10">{{ n }} </span>
       </div>
-      <div v-else>
-        Now you don't
-      </div>
-      <template v-if="ok">
-        <h1>Title</h1>
-        <p>Paragraph 1</p>
-        <p>Paragraph 2</p>
-      </template>
-      <div v-if="num % 6 === 0">
-        Can be divided into 6
-      </div>
-      <div v-else-if="num % 3 === 0">
-        Can be divided into 3
-      </div>
-      <div v-else-if="num % 2 === 0">
-        Can be divided into 2
-      </div>
-
-      <div v-show="false">
-        Is it in DOM ? Yes. v-show="false" => display: none
-      </div>
+      <ul>
+        <li v-for="num in numbers" v-if="num % 2 === 0">
+          {{num}}
+        </li>
+      </ul>
     </div>
   </body>
 </html>
