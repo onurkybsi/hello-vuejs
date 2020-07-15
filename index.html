@@ -15,40 +15,22 @@
   </head>
   <body>
     <div id="app" style="margin: 20px;">
-      <ul>
-        <li v-for="item in array" :key="item.message">
-          {{item.message}}
-        </li>
-      </ul>
-      <ul>
-        <li v-for="(item, index) in array">
-          {{item.message}} - {{index}}
-        </li>
-      </ul>
-      <ul>
-        <!-- in or of, doesnt matter -->
-        <li v-for="prop of iterableObject">
-          {{prop}}
-        </li>
-      </ul>
-      <ul>
-        <li v-for="(value, key) of iterableObject">
-          {{key}} - {{value}}
-        </li>
-      </ul>
-      <ul>
-        <li v-for="evenNumber in evenNumbers">
-          {{evenNumber}}
-        </li>
-      </ul>
-      <div>
-        <span v-for="n in 10">{{ n }} </span>
-      </div>
-      <ul>
-        <li v-for="num in numbers" v-if="num % 2 === 0">
-          {{num}}
-        </li>
-      </ul>
+      <button class="btn btn-info" v-on:click="say('hi')">Say hi</button>
+      <button class="btn btn-info" v-on:click="say('what')">Say what</button>
+      <!-- To access the original DOM event -->
+      <button
+        class="btn btn-warning"
+        v-on:click="warn('Form cannot be submitted yet.', $event)"
+      >
+        To Original
+      </button>
+      <!-- Vue provides "event modifiers" for v-on. Recall that modifiers are directive postfixes denoted by a dot.For example; -->
+      <!-- the click event's propagation will be stopped -->
+      <a class="btn btn-light" v-on:click.stop="doThis">Event Modifiers</a>
+      <!-- only call when the triggered `key` is `Enter` -->
+      <input v-on:keyup.enter="enter" />
+
+      <button class="btn btn-secondary" v-on:click.ctrl="ctrlClick">CTRL + Click</button>
     </div>
   </body>
 </html>
