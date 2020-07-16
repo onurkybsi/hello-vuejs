@@ -15,22 +15,49 @@
   </head>
   <body>
     <div id="app" style="margin: 20px;">
-      <button class="btn btn-info" v-on:click="say('hi')">Say hi</button>
-      <button class="btn btn-info" v-on:click="say('what')">Say what</button>
-      <!-- To access the original DOM event -->
-      <button
-        class="btn btn-warning"
-        v-on:click="warn('Form cannot be submitted yet.', $event)"
-      >
-        To Original
-      </button>
-      <!-- Vue provides "event modifiers" for v-on. Recall that modifiers are directive postfixes denoted by a dot.For example; -->
-      <!-- the click event's propagation will be stopped -->
-      <a class="btn btn-light" v-on:click.stop="doThis">Event Modifiers</a>
-      <!-- only call when the triggered `key` is `Enter` -->
-      <input v-on:keyup.enter="enter" />
-
-      <button class="btn btn-secondary" v-on:click.ctrl="ctrlClick">CTRL + Click</button>
+      <p>Message is: {{ message }}</p>
+      <input v-model="message" placeholder="Edit" />
+      <br />
+      <span>Multiline message is:</span>
+      <p style="white-space: pre-line;">{{ multiLineMessage }}</p>
+      <br />
+      <textarea v-model="multiLineMessage"></textarea>
+      <br />
+      <input type="checkbox" v-model="checked" />
+      <label for="checkbox">{{ checked }}</label>
+      <br />
+      <input type="radio" value="One" v-model="picked" />
+      <label for="one">Option 1</label>
+      <br />
+      <input type="radio" value="Two" v-model="picked" />
+      <label for="two">Option 2</label>
+      <br />
+      <span>Picked: {{ picked }}</span>
+      <br />
+      <select v-model="selected">
+        <option disabled value="">Please select one</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      <br />
+      <!-- `locked` is a string "a" when checked -->
+      <input type="radio" v-model="locked" value="a" />
+      <span>Selected: {{ locked }}</span>
+      <br />
+      <input
+        type="checkbox"
+        v-model="toggle"
+        true-value="yes"
+        false-value="no"
+      />
+      <label>{{toggle}}</label>
+      <br />
+      <!-- input to be automatically typecast as a Number -->
+      <input v-model.number="age" type="number" />
+      <br />
+      <!-- whitespace from user input to be trimmed automatically -->
+      <input v-model.trim="msg" />
     </div>
   </body>
 </html>
