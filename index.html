@@ -15,49 +15,40 @@
   </head>
   <body>
     <div id="app" style="margin: 20px;">
-      <p>Message is: {{ message }}</p>
-      <input v-model="message" placeholder="Edit" />
-      <br />
-      <span>Multiline message is:</span>
-      <p style="white-space: pre-line;">{{ multiLineMessage }}</p>
-      <br />
-      <textarea v-model="multiLineMessage"></textarea>
-      <br />
-      <input type="checkbox" v-model="checked" />
-      <label for="checkbox">{{ checked }}</label>
-      <br />
-      <input type="radio" value="One" v-model="picked" />
-      <label for="one">Option 1</label>
-      <br />
-      <input type="radio" value="Two" v-model="picked" />
-      <label for="two">Option 2</label>
-      <br />
-      <span>Picked: {{ picked }}</span>
-      <br />
-      <select v-model="selected">
-        <option disabled value="">Please select one</option>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
-      </select>
-      <br />
-      <!-- `locked` is a string "a" when checked -->
-      <input type="radio" v-model="locked" value="a" />
-      <span>Selected: {{ locked }}</span>
-      <br />
-      <input
-        type="checkbox"
-        v-model="toggle"
-        true-value="yes"
-        false-value="no"
-      />
-      <label>{{toggle}}</label>
-      <br />
-      <!-- input to be automatically typecast as a Number -->
-      <input v-model.number="age" type="number" />
-      <br />
-      <!-- whitespace from user input to be trimmed automatically -->
-      <input v-model.trim="msg" />
+      <first-component></first-component>
+
+      <hr />
+
+      <component-with-props message="Hello Vuejs!"></component-with-props>
+
+      <hr />
+
+      <component-with-props
+        v-for="message in messages"
+        v-bind:message="message"
+      >
+      </component-with-props>
+
+      <hr />
+
+      <!-- The parent can choose to listen to any event on the child component instance with v-on -->
+      <div :style="{ fontSize: fontSizeOfParent + 'em' }">
+        <component-can-communicate-with-parent
+          message="I can comminacate with parent"
+          v-on:enlarge="enlargeDiv"
+        >
+        </component-can-communicate-with-parent>
+      </div>
+
+      <hr />
+
+      <custom-input v-model="searchText"></custom-input>
+
+      <hr />
+
+      <component-with-slot>
+        <div>I can write HTML content here</div>
+      </component-with-slot>
     </div>
   </body>
 </html>
